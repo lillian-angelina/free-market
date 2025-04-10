@@ -57,4 +57,9 @@ class User extends Authenticatable
         return $this->hasOne(Address::class);
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(Item::class, 'likes')->withTimestamps();
+    }
+
 }

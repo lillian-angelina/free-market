@@ -1,5 +1,5 @@
 .toppage-header {
-    width: 100vw;
+    max-width: none;
     height: 80px;
     background-color: black;
     display: flex;
@@ -21,25 +21,19 @@
 }
 
 .toppage-header-search {
-    width: 563px;
-    height: 80px;
-    left: 475px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .toppage-header-search-input {
-    width: 500px;
-    height: 50px;
     border-radius: 5px;
     border: 1px solid #000000;
     font-family: Inter;
     font-weight: 400;
     font-size: 24px;
     text-align: left;
-    padding: 15px 31px;
-    vertical-align: middle;
+    padding: 10px 31px;
     color: #000000;
     background-color: white;
 }
@@ -50,11 +44,12 @@
     color: white;
     width: 463px;
     height: 80px;
-
+    margin-right: 10px;
 }
 
 .toppage-header-nav_ul {
     display: flex;
+    align-items: center;
     gap: 20px;
     list-style: none;
     margin: 0;
@@ -67,11 +62,9 @@
 
 .toppage-header-nav_listing {
     width: 100px;
-    height: 50px;
-    padding: 8px 0;
+    height: 47px;
     text-align: center;
     border-radius: 4px;
-    color: #000000;
     background: #FFFFFF;
     border: 1px solid #000000;
 }
@@ -82,6 +75,7 @@
     height: 47px;
     padding: 10px 0;
     text-align: center;
+    color: #FFFFFF;
 }
 
 a {
@@ -89,5 +83,6 @@ a {
     font-weight: 400;
     font-size: 24px;
     text-align: center;
-    vertical-align: middle;
+    text-decoration: none;
+    color: #FFFFFF;
 }

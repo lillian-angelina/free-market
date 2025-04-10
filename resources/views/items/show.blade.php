@@ -1,26 +1,63 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/item-show.css') }}">
+@endsection
+
 @section('content')
-<div class="container mx-auto px-4 py-8">
-    <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-        @if ($item->image_path)
-            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}" class="w-full h-64 object-cover">
-        @else
-            <div class="w-full h-64 bg-gray-200 flex items-center justify-center text-gray-500">
-                No Image
+    <div class="product">
+        <div class="product-detail">
+            <div class="product-detail-card">
+                @if ($item->image_path)
+                    <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}"
+                        class="w-full h-64 object-cover">
+                @else
+                    <div class="prodct-image">
+                        商品画像
+                    </div>
+                @endif
             </div>
-        @endif
 
-        <div class="p-6">
-            <h1 class="text-2xl font-bold mb-2">{{ $item->name }}</h1>
-            <p class="text-gray-600 text-lg mb-4">￥{{ number_format($item->price) }}</p>
-            <p class="text-gray-800 mb-4">{{ $item->description }}</p>
-            <p class="text-sm text-gray-500 mb-6">出品者: {{ $item->user->name ?? '不明' }}</p>
-
-            <a href="{{ url('/purchase/' . $item->id) }}" class="inline-block bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-                購入する
-            </a>
+            <div class="product-description-area">
+                <div class="product-title">
+                    <h3 class="product_name">{{ $item->name }}</h3>
+                    <p class="product_brand-name">ブランド名</p>
+                    <p class="product_price">￥{{ number_format($item->price) }}</p>
+                </div>
+                <div class="purchase-area">
+                    <a class="purchase-button" href="{{ url('/purchase/' . $item->id) }}">購入手続きへ</a>
+                </div>
+                <div class="product-description">
+                    <p class="product_description-item">商品説明</p>
+                    <p class="product_description-item">カラー: {{ $item->color }}</p>{{-- カラー --}}
+                    <p class="product_description-item">{{ $item->description }}</p> {{-- 商品説明 --}}
+                    <p class="product_description-item">{{ $item->condition }}</p> {{-- 商品の状態 --}}
+                    <p class="product_description-item">{{ $item->shipping_method }}</p> {{-- 配送の方法 --}}
+                </div>
+                <div class="product-info">
+                    <p class="product_description-item">商品情報</p>
+                    <div class="product-category">
+                        <p class="product-category_item">{{ $item->category->name ?? '不明' }}</p> {{-- カテゴリー --}}
+                    </div>
+                    <div class="product-condition">
+                        <p class="product_description-item">{{ $item->condition }}</p> {{-- 商品の状態 --}}
+                    </div>
+                </div>
+                <div class="product-comment">
+                    <p class="product-comment_item">コメント</p>
+                    <p class="product_unknown">{{ $item->user->name ?? '不明' }}</p>
+                    <div class="comment-list">
+                        <p class="product_comment-list">コメント内容</p>
+                        <input type="text" class="comment-text" placeholder="こちらにコメントが入ります。">
+                    </div>
+                </div>
+                <div class="comment-input">
+                    <p class="item-comment">商品へのコメント</p>
+                    <textarea name="text" id="" class="comment-form"></textarea>
+                    <div class="comment-button">
+                        <button type="submit" class="comment-submit">コメントを送信する</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 @endsection

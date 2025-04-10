@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    protected $fillable = ['user_id', 'name', 'description', 'price', 'image_path'];
-    
+    protected $fillable = ['user_id', 'name', 'description', 'price', 'condition', 'image_path'];
+
+    // 出品者
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -16,6 +17,17 @@ class Item extends Model
     public function purchases()
     {
         return $this->hasMany(Purchase::class);
+    }
+
+    // 購入されたかどうかをチェック（例: sold_flg など）
+    public function isSold()
+    {
+        return $this->sold_flg; // true or false
+    }
+
+    public function likedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
 
 }

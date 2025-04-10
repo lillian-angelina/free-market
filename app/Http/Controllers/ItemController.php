@@ -28,4 +28,19 @@ class ItemController extends Controller
     {
         // バリデーションと保存処理
     }
+
+    public function myList()
+    {
+        if (!auth()->check()) {
+            return view('mylist', ['items' => []]);
+        }
+
+        $user = auth()->user();
+
+        $likedItems = $user->likes()
+            ->where('user_id', '!=', $user->id) // 自分の出品商品を除く
+            ->get();
+
+        return view('mylist', ['items' => $likedItems]);
+    }
 }
