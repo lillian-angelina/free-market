@@ -25,9 +25,19 @@ class Item extends Model
         return $this->sold_flg; // true or false
     }
 
-    public function likedByUsers()
+    public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+        return $this->hasMany(Like::class);
+    }
+
+    public function isLikedBy($user)
+    {
+        return $this->likes->contains('user_id', $user->id);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 }

@@ -15,7 +15,7 @@ class ItemsTableSeeder extends Seeder
             'description' => "スタイリッシュなデザインのメンズ腕時計",
             'price' => 15000,
             'condition' => '良好',
-            'image_path' => null,
+            'image_path' => 'images/Clock.jpg',
         ]);
 
         Item::create([
