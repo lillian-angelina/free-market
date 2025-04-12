@@ -1,4 +1,4 @@
-@extends('layouts.mypage')
+@extends('layouts.app')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/items-index.css') }}">
@@ -8,7 +8,7 @@
     <div class="toppage-list">
         <ul class="toppage-list_category">
             <li class="toppage-list_recommend">おすすめ</li>
-            <li class="toppage-list_mylist"><a href="{{ url ('/?page=mylist') }}" class="toppage-mylist">マイリスト</a></li>
+            <li class="toppage-list_mylist"><a href="{{ url ('/guest/?page=mylist') }}" class="toppage-mylist">マイリスト</a></li>
         </ul>
         <div class="toppage-list_items">
             @forelse ($items as $item)

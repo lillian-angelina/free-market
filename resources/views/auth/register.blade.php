@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>会員登録</title>
+@endsection
+
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/auth-register.css') }}">
 @endsection
@@ -36,7 +41,7 @@
             </div>
 
             <div class="form-group">
-                <label for="password_confirmation">パスワード（確認）</label>
+                <label for="password_confirmation">確認用パスワード</label>
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                 {{-- 通常、確認用はエラーメッセージなしでもOK（元の password エラーで対応される） --}}
             </div>
