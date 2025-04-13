@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('title')
     <title>{{ $item->name ?? '商品詳細' }}</title>

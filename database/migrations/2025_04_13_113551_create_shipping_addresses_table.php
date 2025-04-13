@@ -8,23 +8,29 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('shipping_addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
-            $table->string('payment_method');
+            $table->string('postal_code');
+            $table->string('prefecture');
+            $table->string('city');
+            $table->string('street');
+            $table->string('building')->nullable();
             $table->timestamps();
+
+            // 同一ユーザーが同じ商品に対して複数住所を登録しないよう制約
+            $table->unique(['user_id', 'item_id']);
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('shipping_addresses');
     }
 };

@@ -7,6 +7,7 @@ use App\Http\Controllers\MypageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\ShippingController;
 
 Route::get('/', function () {
     return view('item.index');
@@ -14,6 +15,7 @@ Route::get('/', function () {
 
 Route::get('/guest', [GuestController::class, 'index'])->name('guest.index');
 Route::get('/guest/{item_id}', [GuestController::class, 'show'])->name('guest.show');
+
 Route::get('/', [ItemController::class, 'index'])->name('items.index');
 Route::get('/item/{item_id}', [ItemController::class, 'show'])->name('items.show');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
@@ -23,10 +25,14 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/item/{item_id}', [ItemController::class, 'show'])->name('items.show');
-Route::get('/purchase/{item_id}', [PurchaseController::class, 'index']);
-Route::post('/purchase/{item_id}', [PurchaseController::class, 'confirm']);
-Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'editAddress']);
-Route::post('/purchase/address/{item_id}', [PurchaseController::class, 'updateAddress']);
+Route::get('/purchase/{item_id}', [PurchaseController::class, 'index'])->name('purchase.index');
+Route::post('/purchase/{item_id}', [PurchaseController::class, 'store'])->name('purchase.store');
+Route::middleware(['auth'])->group(function () {
+
+    
+    Route::get('/purchase/address/{item_id}', [ShippingController::class, 'edit'])->name('shipping.edit');
+    Route::post('/purchase/address/{item_id}', [ShippingController::class, 'update'])->name('shipping.update');
+});
 
 Route::get('/sell', [ItemController::class, 'create']) /*->middleware('auth')*/ ->name('items.create');
 Route::post('/sell', [ItemController::class, 'store'])->name('items.store');

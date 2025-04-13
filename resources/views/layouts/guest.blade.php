@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('title')
     <title>実践学習ターム 模擬案件初級_フリマアプリ</title>
-    <link rel="stylesheet" href="{{ asset('css/mypage-common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layouts-common.css') }}">
     @yield('css')
 </head>
 
@@ -14,7 +14,7 @@
     @yield('css')
     <header class="toppage-header">
         <div class="toppage-header-logo">
-            <a href="{{ url('/') }}" class="toppage-header-icon"><img src="{{ asset('images/logo.svg') }}"
+            <a href="{{ url('/guest') }}" class="toppage-header-icon"><img src="{{ asset('images/logo.svg') }}"
                     alt="Logo"></a>
         </div>
         <div class="toppage-header-search">
@@ -31,7 +31,7 @@
                         @csrf
                     </form>
                 </li>
-                <li class="toppage-header-nav_logout"><a href="{{ route('logout') }}">ログアウト</a></li>
+                <li class="toppage-header-nav_login"><a href="{{ route('login') }}">ログイン</a></li>
                 <li class="toppage-header-nav_mypage"><a href="{{ url('/mypage') }}">マイページ</a></li>
                 <li class="toppage-header-nav_listing"><a href="{{ url('/sell') }}"style="color: #000000;">出品</a></li>
             </ul>

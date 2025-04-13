@@ -64,7 +64,7 @@ class AuthController extends Controller
         // 認証処理
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); // セッション固定攻撃対策
-            return redirect()->intended('mypage')->with('success', 'ログインしました');
+            return redirect()->intended('/')->with('success', 'ログインしました');
         }
 
         return back()->withErrors([

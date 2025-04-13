@@ -1,4 +1,4 @@
-@extends('layouts.mypage')
+@extends('layouts.app')
 
 @section('title')
     <title>商品出品</title>
