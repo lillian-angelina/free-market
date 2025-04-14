@@ -13,12 +13,11 @@ class ItemController extends Controller
         return view('items.index', compact('items'));
     }
 
-    public function show(Item $item)
+    public function show($item_id)
     {
-        $item->load('user'); // 出品者の情報も取得
+        $item = Item::with(['likes', 'comments', 'category', 'brand', 'user'])->findOrFail($item_id);
         return view('items.show', compact('item'));
     }
-
     public function create()
     {
         return view('items.create');

@@ -3,15 +3,31 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Brand;
+use App\Models\Comment;
+use App\Models\Like;
+use App\Models\Purchase;
+use App\Models\User;
+use App\Models\Category;
 
 class Item extends Model
 {
-    protected $fillable = ['user_id', 'name', 'description', 'price', 'condition', 'image_path'];
+    protected $fillable = ['user_id', 'name', 'description', 'price', 'category', 'condition', 'image_path', 'brand_id'];
 
     // 出品者
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);  // ブランドテーブルとのリレーション
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class); // Category モデルを関連付け
     }
 
     public function purchases()

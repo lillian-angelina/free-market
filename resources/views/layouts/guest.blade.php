@@ -7,6 +7,7 @@
     @yield('title')
     <title>実践学習ターム 模擬案件初級_フリマアプリ</title>
     <link rel="stylesheet" href="{{ asset('css/layouts-common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     @yield('css')
 </head>
 

@@ -29,7 +29,7 @@
                     <p class="product-actions">
                         {{-- いいねボタン --}}
                         @auth
-                            <form action="{{ route('items.like', $item->id) }}" method="POST">
+                            <form action="{{ route('items.like', ['item' => $item->id]) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="like-button" style="font-size: 20px;">
                                     @if ($item->isLikedBy(Auth::user()))
@@ -76,7 +76,15 @@
                 </div>
                 <div class="product-comment">
                     <p class="product-comment_item">コメント（{{ $item->comments->count() }}）</p>
-                    <p class="product_unknown"><span class="user-name">{{ $item->user->name ?? 'admin' }}</span></p>
+                    <div class="comment-header">
+                        <p class="product_unknown">@if ($item->user->profile_image)
+                            <img src="{{ asset('storage/' . $item->user->profile_image) }}" alt="プロフィール画像"
+                                class="user-icon">
+                        @else
+                            <img src="{{ asset('images/default-user.png') }}" alt="" class="user-icon">
+                        @endif<span class="user-name">{{ $item->user->name ?? 'admin' }}</span>
+                        </p>
+                    </div>
                     <div class="comment-list">
                         <input type="text" class="comment-text" placeholder="こちらにコメントが入ります。">
                     </div>

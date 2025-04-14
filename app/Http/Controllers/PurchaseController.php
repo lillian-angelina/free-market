@@ -18,21 +18,29 @@ class PurchaseController extends Controller
     public function index($item_id)
     {
         $user = Auth::user();
+
+        // 未ログインならログインページへ
+        if (!$user) {
+            return redirect()->route('login')->with('error', '購入手続きにはログインが必要です。');
+        }
+
         $item = Item::findOrFail($item_id);
 
         // すでに購入済みかチェック
         $alreadyPurchased = Purchase::where('user_id', $user->id)
-                                     ->where('item_id', $item_id)
-                                     ->exists();
+            ->where('item_id', $item_id)
+            ->exists();
+
+        $shippingAddress = $user->shipping_address ?? '未設定';
 
         if ($alreadyPurchased) {
             return redirect()->route('profile.purchased_items')
-                             ->with('error', 'この商品はすでに購入済みです。');
+                ->with('error', 'この商品はすでに購入済みです。');
         }
 
-        return view('purchase.index', compact('item'));
+        return view('purchase.index', compact('item', 'shippingAddress'));
     }
-    
+
     public function store(Request $request, $item_id)
     {
         $user = Auth::user();

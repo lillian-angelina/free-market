@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-    public function toggle(Request $request, $itemId)
+    public function toggle(Request $request, Item $item)
     {
-        $item = Item::findOrFail($itemId);
         $user = auth()->user();
 
-        $like = Like::where('user_id', $user->id)->where('item_id', $item->id)->first();
+        $like = Like::where('user_id', $user->id)
+            ->where('item_id', $item->id)
+            ->first();
 
         if ($like) {
             $like->delete(); // いいね取り消し
@@ -26,4 +27,5 @@ class LikeController extends Controller
 
         return redirect()->back();
     }
+
 }

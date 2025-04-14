@@ -16,15 +16,17 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description');
             $table->integer('price');
+            $table->boolean('sold_flg')->default(false); // ←ここに移動
+            $table->unsignedBigInteger('category_id')->nullable(); // カテゴリID
+            $table->unsignedBigInteger('brand_id')->nullable();    // ブランドID
             $table->string('condition')->nullable();
             $table->string('image_path')->nullable();
             $table->timestamps();
 
+            // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
-
-        Schema::table('items', function (Blueprint $table) {
-            $table->boolean('sold_flg')->default(false)->after('price');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('set null');
         });
     }
 

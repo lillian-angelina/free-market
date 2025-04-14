@@ -9,14 +9,10 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ShippingController;
 
-Route::get('/', function () {
-    return view('item.index');
-})->middleware('auth')->name('item.index');
-
 Route::get('/guest', [GuestController::class, 'index'])->name('guest.index');
 Route::get('/guest/{item_id}', [GuestController::class, 'show'])->name('guest.show');
 
-Route::get('/', [ItemController::class, 'index'])->name('items.index');
+Route::get('/', [ItemController::class, 'index'])->middleware('auth')->name('items.index');
 Route::get('/item/{item_id}', [ItemController::class, 'show'])->name('items.show');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register');

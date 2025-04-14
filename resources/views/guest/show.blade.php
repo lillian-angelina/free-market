@@ -29,7 +29,7 @@
                     <p class="product-actions">
                         {{-- いいねボタン --}}
                         @auth
-                            <form action="{{ route('items.like', $item->id) }}" method="POST">
+                            <form action="{{ route('items.like', ['item' => $item->id]) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="like-button" style="font-size: 20px;">
                                     @if ($item->isLikedBy(Auth::user()))

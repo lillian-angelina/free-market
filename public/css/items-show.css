@@ -175,6 +175,12 @@
     margin: 5px 0;
 }
 
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 名前とその他の情報の間に余白を入れる */
+}
+
 .product_unknown {
     display: flex;
     align-items: center;
@@ -185,12 +191,15 @@
 }
 
 .user-name {
+    display: flex;
+    align-items: center;
     margin-left: 70px;
     padding: 20px;
     font-family: Inter;
     font-weight: 700;
     font-size: 30px;
     color: #000000;
+    white-space: nowrap;
 }
 
 .comment-text {
