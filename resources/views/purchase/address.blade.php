@@ -20,11 +20,21 @@
                 <input type="text" id="postal_code" name="postal_code" class="form-control"
                     value="{{ old('postal_code', $address->postal_code ?? '') }}">
             </div>
+            <div class="alert alert-danger">
+                @if ($errors->has('postal_code'))
+                    <div class="alert alert-danger">{{ $errors->first('postal_code') }}</div>
+                @endif
+            </div>
 
             <div class="form-group">
-                <label for="prefecture" class="form-label">住所</label>
-                <input type="text" id="prefecture" name="prefecture" class="form-control"
+                <label for="address" class="form-label">住所</label>
+                <input type="text" id="address" name="prefecture" class="form-control"
                     value="{{ old('prefecture', $address->prefecture ?? '') }}">
+            </div>
+            <div class="alert alert-danger">
+                @if ($errors->has('prefecture'))
+                    <div class="alert alert-danger">{{ $errors->first('prefecture') }}</div>
+                @endif
             </div>
 
             <div class="form-group">
@@ -32,23 +42,13 @@
                 <input type="text" id="building" name="building" class="form-control"
                     value="{{ old('building', $address->building ?? '') }}">
             </div>
+            <div class="alert alert-danger">
+                @if ($errors->has('building'))
+                    <div class="alert alert-danger">{{ $errors->first('building') }}</div>
+                @endif
+            </div>
 
             <button type="submit" class="btn btn-primary">更新する</button>
         </form>
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
     </div>
 @endsection

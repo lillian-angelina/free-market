@@ -25,18 +25,12 @@ class PurchaseController extends Controller
         }
 
         $item = Item::findOrFail($item_id);
+        $user = Auth::user();
 
-        // すでに購入済みかチェック
-        $alreadyPurchased = Purchase::where('user_id', $user->id)
+        // 送付先住所を取得
+        $shippingAddress = ShippingAddress::where('user_id', $user->id)
             ->where('item_id', $item_id)
-            ->exists();
-
-        $shippingAddress = $user->shipping_address ?? '未設定';
-
-        if ($alreadyPurchased) {
-            return redirect()->route('profile.purchased_items')
-                ->with('error', 'この商品はすでに購入済みです。');
-        }
+            ->first();
 
         return view('purchase.index', compact('item', 'shippingAddress'));
     }
@@ -53,8 +47,13 @@ class PurchaseController extends Controller
 
         $paymentMethod = $request->input('payment_method');
 
+        // Retrieve the shipping address
+        $shipping = ShippingAddress::where('user_id', $user->id)
+            ->where('item_id', $item_id)
+            ->first();
+
         // 商品のステータスを更新
-        $item->sold = true;
+        $item->sold_flg = true;
         $item->save();
 
         // 購入記録を保存
@@ -62,6 +61,9 @@ class PurchaseController extends Controller
             'user_id' => $user->id,
             'item_id' => $item->id,
             'payment_method' => $paymentMethod,
+            'shipping_address' => $shipping
+                ? "〒{$shipping->postal_code} {$shipping->prefecture} {$shipping->building}"
+                : null,
         ]);
 
         // Stripe決済処理（カード支払い時）
@@ -91,6 +93,6 @@ class PurchaseController extends Controller
         }
 
         // コンビニ支払いの場合は即完了
-        return redirect()->route('profile.purchased_items')->with('success', '購入が完了しました（コンビニ支払い）');
+        return redirect()->route('items.index')->with('success', '購入が完了しました（コンビニ支払い）');
     }
 }

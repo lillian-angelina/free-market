@@ -17,7 +17,7 @@
         <div class="image-group">
             <div class="image-upload">
                 {{-- プレビュー表示 --}}
-                <img class="image-preview" id="preview" src="#" alt="画像プレビュー" style="max-width: 200px; display: none;">
+                <img class="image-preview" id="preview" src="#" alt="#" style="max-width: 200px;">
 
                 {{-- カスタムボタンとしてlabel使用 --}}
                 <label for="image" class="image-select-label">
@@ -35,24 +35,26 @@
 
             <div class="form-group">
                 <label for="name">ユーザー名</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                <input type="text" name="name" id="name" class="form-control"
+                    value="{{ old('name', auth()->user()->name) }}">
                 @error('name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="postal_code">郵便番号</label>
-                <input type="text" name="postal_code" id="postal_code" class="form-control"
-                    value="{{ old('postal_code') }}">
-                @error('postal_code')
+                <label for="zipcode">郵便番号</label>
+                <input type="text" name="zipcode" id="zipcode" class="form-control"
+                    value="{{ old('zipcode', auth()->user()->zipcode) }}">
+                @error('zipcode')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-group">
                 <label for="address">住所</label>
-                <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}">
+                <input type="text" name="address" id="address" class="form-control"
+                    value="{{ old('address', auth()->user()->address) }}">
                 @error('address')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -60,11 +62,13 @@
 
             <div class="form-group">
                 <label for="building">建物名</label>
-                <input type="text" name="building" id="building" class="form-control" value="{{ old('building') }}">
+                <input type="text" name="building" id="building" class="form-control"
+                    value="{{ old('building', auth()->user()->building) }}">
                 @error('building')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+
 
             <div class="form-button">
                 <button type="submit" class="btn btn-primary">更新する</button>

@@ -14,6 +14,10 @@ class Item extends Model
 {
     protected $fillable = ['user_id', 'name', 'description', 'price', 'category', 'condition', 'image_path', 'brand_id'];
 
+    protected $casts = [
+        'sold_flg' => 'boolean',
+    ];
+
     // 出品者
     public function user()
     {

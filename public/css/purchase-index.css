@@ -11,7 +11,6 @@
 .item-content {
     display: flex;
     gap: 24px;
-    margin-bottom: 24px;
 }
 
 .item-image {
@@ -46,10 +45,8 @@
 .item-details_content2 {
     display: flex;
     width: 430px;
-    height: 230px;
-    top: 173px;
-    left: 987px;
-    
+
+    margin: 40px 20px 0 0;
 
     color: #555;
 }
@@ -61,8 +58,9 @@
     text-align: center;
     border: 1px solid #000000;
 }
+
 .item-details_actions-box1 {
-border-right: none;
+    border-right: none;
 }
 
 .item-details_actions-box2 {
@@ -108,34 +106,39 @@ border-right: none;
 }
 
 .payment-method {
+    width: 805px;
     margin-bottom: 24px;
 }
 
 .payment-method_label {
-    display: block;
-    margin-bottom: 8px;
+    width: 326px;
+    height: 85px;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
     font-weight: bold;
 }
 
 .payment-method_select {
+    display: flex;
     width: 265px;
     height: 31px;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+    color: #5F5F5F;
+    border: 1px solid #5F5F5F;
+    font-size: 12px;
+    margin: 0 0 30px 60px;
 }
 
 .shipping-address-content {
     margin-bottom: 32px;
     padding-top: 12px;
-    border-top: 1px solid #eee;
 }
 
 .shipping-address_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 805px;
     margin-bottom: 8px;
 }
 
@@ -145,33 +148,44 @@ border-right: none;
 }
 
 .shipping-address_change {
-    color: #3b82f6;
+    color: #0073CC;
     text-decoration: underline;
-    font-size: 0.95rem;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 .shipping-address_details {
-    font-size: 0.95rem;
-    color: #333;
-    background: #f9f9f9;
-    padding: 12px;
-    border-radius: 6px;
+    width: 745px;
+    height: 58px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    margin: 0 0 30px 60px;
+
 }
 
 .purchase {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+}
+
+.purchase-button-item {
+    margin: 40px 20px 0 0;
 }
 
 .purchase-button {
-    background-color: #3b82f6;
-    color: white;
-    font-weight: bold;
-    padding: 10px 24px;
+    width: 430px;
+    height: 60px;
+    border-radius: 5px;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #FF5555;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .purchase-button:hover {

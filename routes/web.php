@@ -39,5 +39,6 @@ Route::post('/items/{item}/comments', [CommentController::class, 'store'])->midd
 Route::post('/items/{item}/like', [LikeController::class, 'toggle'])->middleware('auth')->name('items.like');
 
 Route::get('/mypage', [MypageController::class, 'index']);
+Route::get('/mypage/purchase', [MypageController::class, 'purchaseItems'])->name('profile.purchased_items');
 Route::get('/mypage/profile', [MypageController::class, 'edit'])->name('mypage.edit');
 Route::post('/mypage/profile', [MypageController::class, 'update'])->name('mypage.update');

@@ -14,8 +14,6 @@ class ShippingAddress extends Model
         'item_id',
         'postal_code',
         'prefecture',
-        'city',
-        'street',
         'building',
     ];
 

@@ -16,9 +16,6 @@ return new class extends Migration {
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->string('postal_code');
             $table->string('prefecture');
-            $table->string('city');
-            $table->string('street');
-            $table->string('shipping_address');
             $table->string('building')->nullable();
             $table->timestamps();
 

@@ -38,21 +38,23 @@
         <form class="purchase" id="purchase-form" action="{{ route('purchase.store', ['item_id' => $item->id]) }}"
             method="POST">
             @csrf
-            <input type="hidden" name="payment_method" id="payment_method_input" value="convenience">
-            <button type="submit" class="purchase-button">
-                購入する
-            </button>
+            {{-- 支払い方法選択 --}}
+            <div class="payment-method">
+                <label for="payment_method" class="payment-method_label">支払い方法</label>
+                <select id="payment_method" name="payment_method" class="payment-method_select"
+                    onchange="updatePaymentMethod()">
+                    <option value="選択してください">選択してください</option>
+                    <option value="convenience">コンビニ支払い</option>
+                    <option value="card">カード支払い</option>
+                </select>
+            </div>
+            <div class="purchase-button-item">
+                <input type="hidden" name="payment_method" id="payment_method_input" value="convenience">
+                <button type="submit" class="purchase-button">
+                    購入する
+                </button>
+            </div>
         </form>
-
-        {{-- 支払い方法選択 --}}
-        <div class="payment-method">
-            <label for="payment_method" class="payment-method_label">支払い方法</label>
-            <select id="payment_method" name="payment_method" class="payment-method_select"
-                onchange="updatePaymentMethod()">
-                <option value="convenience">コンビニ支払い</option>
-                <option value="card">カード支払い</option>
-            </select>
-        </div>
 
         <div class="line"></div>
 
@@ -63,10 +65,17 @@
                 <a href="{{ route('shipping.edit', ['item_id' => $item->id]) }}" class="shipping-address_change">変更する</a>
             </div>
             <p class="shipping-address_details">
-                {{ $shippingAddress ?? '未設定' }}
+                @if ($shippingAddress)
+                    〒{{ $shippingAddress->postal_code }}<br>
+                    {{ $shippingAddress->prefecture }}{{ $shippingAddress->shipping_address }}　{{ $shippingAddress->building }}
+                @else
+                    未設定
+                @endif
             </p>
         </div>
+
         <div class="line"></div>
+
     </div>
 
 

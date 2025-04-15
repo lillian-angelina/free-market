@@ -20,8 +20,8 @@ class ShippingController extends Controller
 
         // すでにshipping_addressesがある場合はそれを使う
         $address = ShippingAddress::where('user_id', $user->id)
-                                  ->where('item_id', $item_id)
-                                  ->first();
+            ->where('item_id', $item_id)
+            ->first();
 
         // なければデフォルト住所（addressesテーブル）を初期値として使う
         if (!$address) {
@@ -37,24 +37,27 @@ class ShippingController extends Controller
      */
     public function update(Request $request, $item_id)
     {
-        $user = Auth::user();
-
         // バリデーション
         $validated = $request->validate([
             'postal_code' => 'required|string|max:10',
-            'prefecture'  => 'required|string|max:255',
-            'city'        => 'required|string|max:255',
-            'street'      => 'required|string|max:255',
-            'building'    => 'nullable|string|max:255',
+            'prefecture' => 'required|string|max:255',
+            'building' => 'nullable|string|max:255',
         ]);
 
-        // 保存または更新
-        $shipping = ShippingAddress::updateOrCreate(
-            ['user_id' => $user->id, 'item_id' => $item_id],
-            $validated
-        );
+        $user = auth()->user();
+
+        // shipping_addresses に保存 or 更新（item_id, user_id がキー）
+        $shippingAddress = ShippingAddress::firstOrNew([
+            'user_id' => $user->id,
+            'item_id' => $item_id,
+        ]);
+
+        $shippingAddress->postal_code = $validated['postal_code'];
+        $shippingAddress->prefecture = $validated['prefecture'];
+        $shippingAddress->building = $validated['building'];
+        $shippingAddress->save();
 
         return redirect()->route('purchase.index', ['item_id' => $item_id])
-                         ->with('success', '送付先住所を更新しました');
+            ->with('status', '送付先住所を更新しました');
     }
 }

@@ -3,13 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Purchase;
 
 class MypageController extends Controller
 {
     public function index(Request $request)
     {
         $page = $request->query('page');
-        return view('mypage.index', compact('page'));
+        $user = auth()->user();
+
+        if ($page === 'sell') {
+            // 出品した商品を取得（user_idが自分のもの）
+            $items = $user->items()->latest()->get();
+        } elseif ($page === 'buy') {
+            // 購入した商品を取得（purchasesテーブル経由）
+            $items = \App\Models\Item::whereIn('id', function ($query) use ($user) {
+                $query->select('item_id')
+                    ->from('purchases')
+                    ->where('user_id', $user->id);
+            })->latest()->get();
+        } else {
+            // 初期表示など（アイテムなし）
+            $items = collect();
+        }
+
+        return view('mypage.index', compact('page', 'items'));
     }
 
     public function edit()
@@ -43,4 +61,16 @@ class MypageController extends Controller
 
         return redirect()->back()->with('success', 'プロフィールを更新しました。');
     }
+
+    public function purchaseItems()
+    {
+        $user = auth()->user();
+
+        $purchases = Purchase::with('item')
+            ->where('user_id', $user->id)
+            ->get();
+
+        return view('items.index', compact('items'));
+    }
+
 }
