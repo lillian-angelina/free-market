@@ -132,3 +132,7 @@
     margin: 0;
     color: #000000;
 }
+
+.item-sold {
+    color: red;
+}

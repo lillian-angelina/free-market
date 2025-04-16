@@ -1,4 +1,4 @@
-body{
+body {
     width: 100vw;
     height: 100vh;
 }
@@ -61,11 +61,18 @@ body{
     padding: 0;
 }
 
-.form {
-    display: inline;
+.form button {
+    width: 135px;
+    height: 56px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
 }
 
 .toppage-header-nav_listing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 47px;
     text-align: center;
@@ -74,11 +81,11 @@ body{
     border: 1px solid #000000;
 }
 
-.toppage-header-nav_logout,
+.logout-link,
 .toppage-header-nav_mypage {
     width: 135px;
-    height: 47px;
     padding: 10px 0;
+    font-size: 24px;
     text-align: center;
     color: #FFFFFF;
 }
@@ -90,4 +97,5 @@ a {
     text-align: center;
     text-decoration: none;
     color: #FFFFFF;
+    cursor: pointer;
 }

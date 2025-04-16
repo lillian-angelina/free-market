@@ -31,19 +31,30 @@
                         @auth
                             <form action="{{ route('items.like', ['item' => $item->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="like-button" style="font-size: 20px;">
-                                    @if ($item->isLikedBy(Auth::user()))
-                                        ⭐{{ $item->likes->count() }}
-                                    @else
-                                        ☆{{ $item->likes->count() }}
-                                    @endif
-                                </button>
+                                <div class="count-content">
+                                    <button type="submit" class="like-button" style="font-size: 20px;">
+                                        @if ($item->isLikedBy(Auth::user()))
+                                            <label class="likes">⭐</label><br><span
+                                                class="count-likes">{{ $item->likes->count() }}</span>
+
+                                        @else
+                                            <label class="likes">☆</label><br><span
+                                                class="count-likes">{{ $item->likes->count() }}</span>
+
+                                        @endif
+                                    </button>
+                                </div>
+                                <div class="count-content">
+                                    <p class="icon">💭</p><br>
+                                    <span class="count-comments">{{ $item->comments->count() }}</span>
+                                </div>
                             </form>
                         @else
                             <a href="{{ route('login') }}" style="color: black; font-size: 20px;">☆</a>
                             <span class="icon" style="font-size: 20px;">💭</span>
-                            <p class="count">{{ $item->likes->count() }}<span class="count">{{ $item->comments->count() }}</span>
-                            </p>
+                            <span class="count-likes">{{ $item->likes->count() }}<span
+                                    class="count-comments">{{ $item->comments->count() }}</span>
+                            </span>
                         @endauth
                     </p>
 

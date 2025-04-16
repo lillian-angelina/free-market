@@ -12,25 +12,25 @@
         </ul>
         <div class="toppage-list_items">
             @forelse ($items as $item)
-                <a href="{{ url('/item/' . $item->id) }}">
-                    <div class="card">
+                <div class="card">
+                    <a href="{{ url('/item/' . $item->id) }}">
                         @if ($item->image_path)
-                            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
+                            <img class="card-image" src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
                         @else
                             <div class="card-image">商品画像</div>
                         @endif
-
-                        <div class="card-body">
+                    </a>
+                    <div class="card-body">
+                        <a href="{{ url('/item/' . $item->id) }}">
                             <p class="card-title">{{ $item->name }}</p>
-
-                            @if ($item->isSold())
-                                <span class="text-red-600 font-bold">Sold</span>
-                            @endif
-                        </div>
+                        </a>
+                        @if ($item->isSold())
+                            <span class="item-sold">Sold</span>
+                        @endif
                     </div>
-                </a>
+                </div>
             @empty
-                <p>マイリストに商品がありません。</p>
+                <p>いいねした商品がありません。</p>
             @endforelse
         </div>
 @endsection

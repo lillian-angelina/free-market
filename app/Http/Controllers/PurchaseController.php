@@ -93,6 +93,10 @@ class PurchaseController extends Controller
         }
 
         // コンビニ支払いの場合は即完了
-        return redirect()->route('items.index')->with('success', '購入が完了しました（コンビニ支払い）');
+        if (auth()->check()) {
+            return redirect()->route('items.index')->with('success', '購入が完了しました（コンビニ支払い）');
+        } else {
+            return redirect()->route('guest.index')->with('success', '購入が完了しました（コンビニ支払い）');
+        }
     }
 }

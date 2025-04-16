@@ -9,29 +9,24 @@
         <div class="toppage-list_items">
             @forelse ($items as $item)
                 <div class="card">
-                    @if ($item->image_path)
-                        <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}"><a
-                            href="{{ url('/item/' . $item->id) }}" class="card-button"></a>
-                    @else
-                        <div class="card-image">
-                            商品画像
-                        </div>
-                    @endif
-
-                    <div class="card-body">
-                        <p class="card-title">{{ $item->name }}</p>
-                        <p class="card-price">￥{{ number_format($item->price) }}</p>
-                        <p class="card-description">{{ Str::limit($item->description, 100) }}</p>
-
-                        @if ($item->isSold())
-                            <span class="text-red-600 font-bold">Sold</span>
+                    <a href="{{ url('/item/' . $item->id) }}">
+                        @if ($item->image_path)
+                            <img class="card-image" src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
                         @else
-                            <a href="{{ url('/item/' . $item->id) }}" class="card-button"></a>
+                            <div class="card-image">商品画像</div>
+                        @endif
+                    </a>
+                    <div class="card-body">
+                        <a href="{{ url('/item/' . $item->id) }}">
+                            <p class="card-title">{{ $item->name }}</p>
+                        </a>
+                        @if ($item->isSold())
+                            <span class="item-sold">Sold</span>
                         @endif
                     </div>
                 </div>
             @empty
-                <p>マイリストに商品がありません。</p>
+                <p>いいねした商品がありません。</p>
             @endforelse
         </div>
 @endsection

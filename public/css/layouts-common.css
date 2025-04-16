@@ -66,6 +66,9 @@ body{
 }
 
 .toppage-header-nav_listing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 47px;
     text-align: center;
@@ -77,8 +80,8 @@ body{
 .toppage-header-nav_login,
 .toppage-header-nav_mypage {
     width: 135px;
-    height: 47px;
     padding: 10px 0;
+    font-size: 24px;
     text-align: center;
     color: #FFFFFF;
 }
@@ -90,4 +93,9 @@ a {
     text-align: center;
     text-decoration: none;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+.item-sold {
+    color: red;
 }

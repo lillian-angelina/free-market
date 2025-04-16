@@ -178,7 +178,8 @@
 .comment-header {
     display: flex;
     align-items: center;
-    gap: 10px; /* 名前とその他の情報の間に余白を入れる */
+    gap: 10px;
+    /* 名前とその他の情報の間に余白を入れる */
 }
 
 .product_unknown {
@@ -271,32 +272,45 @@
 
 .like-button {
     display: inline;
-    font-size: 1rem;
     color: #000000;
     padding: 4px 8px;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 18px;
 }
 
 .like-button:hover {
     opacity: 0.8;
 }
 
-.count {
-    font-size: 18px;
-    margin: 0 30px;
+.icon,
+.count-content {
+    display: inline-block;
+    text-align: center;
 }
 
 .product-actions {
     margin: 0 25px;
 }
 
-.icon {
-    margin: 0 15px;
+.icon,
+.likes {
+    display: inline-block;
+    margin: 0 30px;
 }
 
+.icon {
+    transform: translateY(20%);
+    font-size: 18px;
+}
+
+.count-comments,
+.count-likes {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0 35px;
+    padding: 0;
+}
 
 @media (max-width: 768px) {
     .product-detail {

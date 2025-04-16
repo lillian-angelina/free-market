@@ -15,26 +15,39 @@
     @yield('css')
     <header class="toppage-header">
         <div class="toppage-header-logo">
-            <a href="{{ url('/') }}" class="toppage-header-icon"><img src="{{ asset('images/logo.svg') }}"
-                    alt="Logo"></a>
+            <a href="{{ url('/') }}" class="toppage-header-icon">
+                <img src="{{ asset('images/logo.svg') }}" alt="Logo">
+            </a>
         </div>
+
+        {{-- 検索フォーム --}}
         <div class="toppage-header-search">
             <form action="{{ url('/search') }}" method="GET" class="toppage-header-search-form">
-                @csrf
-                <input type="text" name="query" placeholder="なにをお探しですか？" class="toppage-header-search-input"
-                    oninput="this.form.submit()">
+                <input type="text" name="query" placeholder="なにをお探しですか？" value="{{ request('query') }}"
+                    class="toppage-header-search-input">
             </form>
         </div>
+
+        {{-- ナビゲーション --}}
         <nav class="toppage-header-nav">
             <ul class="toppage-header-nav_ul">
-                <li>
-                    <form class="form" action="{{ url('/search') }}" method="GET">
+                {{-- ログアウト（POST送信） --}}
+                <li class="toppage-header-nav_logout">
+                    <form class="form" method="POST" action="{{ route('logout') }}">
                         @csrf
+                        <button type="submit" class="logout-link">ログアウト</button>
                     </form>
                 </li>
-                <li class="toppage-header-nav_logout"><a href="{{ route('logout') }}">ログアウト</a></li>
-                <li class="toppage-header-nav_mypage"><a href="{{ url('/mypage') }}">マイページ</a></li>
-                <li class="toppage-header-nav_listing"><a href="{{ url('/sell') }}"style="color: #000000;">出品</a></li>
+
+                {{-- マイページ --}}
+                <li class="toppage-header-nav_mypage">
+                    <a href="{{ url('/mypage') }}">マイページ</a>
+                </li>
+
+                {{-- 出品ページ --}}
+                <li class="toppage-header-nav_listing">
+                    <a href="{{ url('/sell') }}" style="color: #000000;">出品</a>
+                </li>
             </ul>
         </nav>
     </header>

@@ -55,15 +55,15 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        // バリデーション
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
-        // 認証処理
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); // セッション固定攻撃対策
+            $request->session()->regenerate();
+
+            // ログイン後の遷移先を確認
             return redirect()->route('items.index')->with('success', 'ログインしました');
         }
 
@@ -82,5 +82,15 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login')->with('success', 'ログアウトしました');
+    }
+
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login'); // またはトップページなど
     }
 }

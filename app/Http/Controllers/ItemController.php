@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::with('user')->latest()->get(); // 最新の商品を取得
+        $user = Auth::user();
+
+        if ($request->input('page') === 'mylist') {
+            $items = $user ? $user->likedItems()->get() : collect();
+        } else {
+            $items = Item::all();
+        }
+
         return view('items.index', compact('items'));
     }
 
@@ -25,7 +33,7 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        // バリデーションと保存処理
+        // TODO: バリデーションと保存処理
     }
 
     public function myList()
@@ -41,5 +49,16 @@ class ItemController extends Controller
             ->get();
 
         return view('mylist', ['items' => $likedItems]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $items = Item::when($query, function ($q) use ($query) {
+            $q->where('name', 'like', '%' . $query . '%');
+        })->get();
+
+        return view('items.index', compact('items', 'query'));
     }
 }

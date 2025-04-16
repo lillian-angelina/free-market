@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Purchase;
+use Illuminate\Routing\Controller;
 
 class MypageController extends Controller
 {
@@ -70,7 +71,15 @@ class MypageController extends Controller
             ->where('user_id', $user->id)
             ->get();
 
+        // Purchase に紐づく Item を取り出す
+        $items = $purchases->pluck('item')->filter();
+
         return view('items.index', compact('items'));
+    }
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
     }
 
 }
