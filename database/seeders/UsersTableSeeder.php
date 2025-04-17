@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'テストユーザー',
                 'password' => Hash::make('password123'),
-                'zipcode' => '123-4567',
+                'postal_code' => '123-4567',
                 'address' => '東京都千代田区1-1-1',
                 'building' => 'テストビル101',
             ]

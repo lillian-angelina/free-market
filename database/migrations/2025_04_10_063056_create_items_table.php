@@ -16,7 +16,9 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description');
             $table->integer('price');
-            $table->boolean('sold_flg')->default(false); // ←ここに移動
+            $table->string('image')->nullable();
+            $table->string('brand')->nullable();
+            $table->boolean('sold_flg')->default(false); 
             $table->unsignedBigInteger('category_id')->nullable(); // カテゴリID
             $table->unsignedBigInteger('brand_id')->nullable();    // ブランドID
             $table->string('condition')->nullable();

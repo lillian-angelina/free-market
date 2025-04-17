@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
-            'zipcode' => '123-4567',
+            'postal_code' => '123-4567',
             'address' => '東京都千代田区1-1-1',
             'building' => 'テストビル101',
         ]);

@@ -143,7 +143,11 @@
 }
 
 .category {
-    margin-left: 50px;
+    margin-right: 40px;
+}
+
+.category-name {
+    margin: 0 5px;
     padding: 0 30px;
     font-family: Inter;
     font-weight: 400;

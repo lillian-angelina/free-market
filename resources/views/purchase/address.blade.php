@@ -47,7 +47,7 @@
                     <div class="alert alert-danger">{{ $errors->first('building') }}</div>
                 @endif
             </div>
-
+            <input type="hidden" name="payment_method" value="{{ request('payment_method') }}">
             <button type="submit" class="btn btn-primary">更新する</button>
         </form>
     </div>

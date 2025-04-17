@@ -46,18 +46,29 @@ class ShippingController extends Controller
 
         $user = auth()->user();
 
-        // shipping_addresses に保存 or 更新（item_id, user_id がキー）
+        // 保存処理
         $shippingAddress = ShippingAddress::firstOrNew([
             'user_id' => $user->id,
             'item_id' => $item_id,
         ]);
 
-        $shippingAddress->postal_code = $validated['postal_code'];
-        $shippingAddress->prefecture = $validated['prefecture'];
-        $shippingAddress->building = $validated['building'];
+        ShippingAddress::updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'postal_code' => $request->input('postal_code'),
+                'shipping_address' => $request->input('address'),
+                'building' => $request->input('building'),
+            ]
+        );
+
         $shippingAddress->save();
 
-        return redirect()->route('purchase.index', ['item_id' => $item_id])
-            ->with('status', '送付先住所を更新しました');
+        // クエリまたはhiddenフィールドから支払い方法を取得
+        $paymentMethod = $request->input('payment_method') ?? $request->query('payment_method');
+
+        return redirect()->route('purchase.index', [
+            'item_id' => $item_id,
+            'payment_method' => $paymentMethod,
+        ]);
     }
 }

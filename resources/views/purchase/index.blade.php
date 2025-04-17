@@ -9,6 +9,9 @@
 @endsection
 
 @section('content')
+    @php
+        $selected = old('payment_method') ?? request()->query('payment_method') ?? '選択してください';
+    @endphp
     <div class="container">
 
         {{-- 商品情報 --}}
@@ -27,7 +30,9 @@
                 </div>
                 <div class="item-details_actions-box2">
                     <p class="item-price_second">¥{{ number_format($item->price) }}</p>
-                    <p class="selected-method" id="selected-method">コンビニ支払い</p>
+                    <p class="selected-method" id="selected-method">
+                        {{ $selected === 'card' ? 'カード支払い' : ($selected === 'convenience' ? 'コンビニ支払い' : '') }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -43,13 +48,12 @@
                 <label for="payment_method" class="payment-method_label">支払い方法</label>
                 <select id="payment_method" name="payment_method" class="payment-method_select"
                     onchange="updatePaymentMethod()">
-                    <option value="選択してください">選択してください</option>
-                    <option value="convenience">コンビニ支払い</option>
-                    <option value="card">カード支払い</option>
+                    <option value="選択してください" {{ $selected === '選択してください' ? 'selected' : '' }}>選択してください</option>
+                    <option value="convenience" {{ $selected === 'convenience' ? 'selected' : '' }}>コンビニ支払い</option>
+                    <option value="card" {{ $selected === 'card' ? 'selected' : '' }}>カード支払い</option>
                 </select>
             </div>
             <div class="purchase-button-item">
-                <input type="hidden" name="payment_method" id="payment_method_input" value="convenience">
                 <button type="submit" class="purchase-button">
                     購入する
                 </button>
@@ -62,7 +66,9 @@
         <div class="shipping-address-content">
             <div class="shipping-address_header">
                 <h4 class="shipping-address">配送先</h4>
-                <a href="{{ route('shipping.edit', ['item_id' => $item->id]) }}" class="shipping-address_change">変更する</a>
+                <a id="change-shipping-link" href="#" class="shipping-address_change">
+                    変更する
+                </a>
             </div>
             <p class="shipping-address_details">
                 @if ($shippingAddress)
@@ -83,11 +89,28 @@
     <script>
         function updatePaymentMethod() {
             const selected = document.getElementById('payment_method').value;
-            const methodInput = document.getElementById('payment_method_input');
             const selectedMethodDisplay = document.getElementById('selected-method');
+            const changeLink = document.getElementById('change-shipping-link');
 
-            methodInput.value = selected;
-            selectedMethodDisplay.textContent = selected === 'card' ? 'カード支払い' : 'コンビニ支払い';
+            // 表示用のテキスト変更
+            if (selected === 'card') {
+                selectedMethodDisplay.textContent = 'カード支払い';
+            } else if (selected === 'convenience') {
+                selectedMethodDisplay.textContent = 'コンビニ支払い';
+            } else {
+                selectedMethodDisplay.textContent = '';
+            }
+
+            // URL書き換え
+            const baseUrl = "{{ route('shipping.edit', ['item_id' => $item->id]) }}";
+            changeLink.href = `${baseUrl}?payment_method=${encodeURIComponent(selected)}`;
         }
+
+        // 初期表示時にも実行
+        window.addEventListener('DOMContentLoaded', () => {
+            updatePaymentMethod();
+            // セレクトボックスの変更イベントにもバインド
+            document.getElementById('payment_method').addEventListener('change', updatePaymentMethod);
+        });
     </script>
 @endsection

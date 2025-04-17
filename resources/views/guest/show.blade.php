@@ -77,8 +77,11 @@
                 <div class="product-info">
                     <p class="product_description-item1">商品情報</p>
                     <div class="product-category">
-                        <p class="product-category_item6">カテゴリー<span
-                                class="category">{{ $item->category->name ?? '洋服' }}</span></p> {{-- カテゴリー --}}
+                        <p class="product-category_item6">カテゴリー
+                            @foreach($item->categories as $category)
+                                <span class="category">{{ $category->name }}</span>
+                            @endforeach
+                        </p>
                     </div>
                     <div class="product-condition">
                         <p class="product_description-item">商品の状態<span

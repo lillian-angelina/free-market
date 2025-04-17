@@ -37,47 +37,10 @@
             <div class="form-group">
                 <p class="product-details">商品の詳細</p>
                 <div class="category-group">
-                    <input type="checkbox" name="categories[]" value="ファッション" id="cat-fashion">
-                    <label for="cat-fashion">ファッション</label>
-
-                    <input type="checkbox" name="categories[]" value="家電" id="cat-electronics">
-                    <label for="cat-electronics">家電</label>
-
-                    <input type="checkbox" name="categories[]" value="インテリア" id="cat-interior">
-                    <label for="cat-interior">インテリア</label>
-
-                    <input type="checkbox" name="categories[]" value="レディース" id="cat-ladies">
-                    <label for="cat-ladies">レディース</label>
-
-                    <input type="checkbox" name="categories[]" value="メンズ" id="cat-men">
-                    <label for="cat-men">メンズ</label>
-
-                    <input type="checkbox" name="categories[]" value="コスメ" id="cat-cosme">
-                    <label for="cat-cosme">コスメ</label>
-
-                    <input type="checkbox" name="categories[]" value="本" id="cat-books">
-                    <label for="cat-books">本</label>
-
-                    <input type="checkbox" name="categories[]" value="ゲーム" id="cat-game">
-                    <label for="cat-game">ゲーム</label>
-
-                    <input type="checkbox" name="categories[]" value="スポーツ" id="cat-sports">
-                    <label for="cat-sports">スポーツ</label>
-
-                    <input type="checkbox" name="categories[]" value="キッチン" id="cat-kitchen">
-                    <label for="cat-kitchen">キッチン</label>
-
-                    <input type="checkbox" name="categories[]" value="ハンドメイド" id="cat-handmade">
-                    <label for="cat-handmade">ハンドメイド</label>
-
-                    <input type="checkbox" name="categories[]" value="アクセサリー" id="cat-accessory">
-                    <label for="cat-accessory">アクセサリー</label>
-
-                    <input type="checkbox" name="categories[]" value="おもちゃ" id="cat-toy">
-                    <label for="cat-toy">おもちゃ</label>
-
-                    <input type="checkbox" name="categories[]" value="ベビー・キッズ" id="cat-baby">
-                    <label for="cat-baby">ベビー・キッズ</label>
+                    @foreach ($categories as $category)
+                        <input type="checkbox" name="categories[]" value="{{ $category->id }}" id="cat-{{ $category->id }}">
+                        <label for="cat-{{ $category->id }}">{{ $category->name }}</label>
+                    @endforeach
                 </div>
             </div>
 

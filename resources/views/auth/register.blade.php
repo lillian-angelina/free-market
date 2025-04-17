@@ -14,7 +14,7 @@
         <div class="register-title">
             <p>会員登録</p>
         </div>
-        <form action="{{ url('login') }}" method="POST">
+        <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">ユーザー名</label>

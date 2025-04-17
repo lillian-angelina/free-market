@@ -39,7 +39,7 @@ class AuthController extends Controller
         // ログインさせて、リダイレクト
         Auth::login($user);
 
-        return redirect()->route('home')->with('success', '登録が完了しました');
+        return redirect()->route('items.index')->with('success', '登録が完了しました');
     }
 
     /**

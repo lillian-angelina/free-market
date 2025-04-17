@@ -29,9 +29,9 @@ class Item extends Model
         return $this->belongsTo(Brand::class);  // ブランドテーブルとのリレーション
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class); // Category モデルを関連付け
+        return $this->belongsToMany(Category::class);
     }
 
     public function purchases()
