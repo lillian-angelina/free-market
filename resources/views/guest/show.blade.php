@@ -92,7 +92,11 @@
                     <p class="product-comment_item">コメント（{{ $item->comments->count() }}）</p>
                     <p class="product_unknown"><span class="user-name">{{ $item->user->name ?? 'admin' }}</span></p>
                     <div class="comment-list">
-                        <input type="text" class="comment-text" placeholder="こちらにコメントが入ります。">
+                        @foreach ($item->comments as $comment)
+                            <div class="comment-text">
+                                <p>{{ $comment->user->name }}：{{ $comment->body ?? 'こちらにコメントが入ります。' }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <form action="{{ url('/items/' . $item->id . '/comments') }}" method="POST">

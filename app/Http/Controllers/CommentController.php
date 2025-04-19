@@ -4,21 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, $itemId)
+    public function store(Request $request, $item_id)
     {
         $request->validate([
             'body' => 'required|string|max:1000',
         ]);
 
         Comment::create([
-            'item_id' => $itemId,
-            'user_id' => auth()->id(),
-            'body' => $request->input('body'),
+            'item_id' => $item_id,
+            'user_id' => Auth::id(),
+            'body' => $request->body,
         ]);
 
-        return redirect()->back()->with('success', 'コメントを投稿しました。');
+        return redirect()->route('items.show', ['item_id' => $item_id]);
     }
 }

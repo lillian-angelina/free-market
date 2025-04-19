@@ -100,7 +100,11 @@
                         </p>
                     </div>
                     <div class="comment-list">
-                        <input type="text" class="comment-text" placeholder="こちらにコメントが入ります。">
+                        @foreach ($item->comments as $comment)
+                            <div class="comment-text">
+                                <p class="comment-text_user">{{ $comment->user->name }}：{{ $comment->body ?? 'こちらにコメントが入ります。' }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <form action="{{ url('/items/' . $item->id . '/comments') }}" method="POST">
