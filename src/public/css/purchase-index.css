@@ -1,0 +1,198 @@
+.container {
+    max-width: 1512px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.item-content {
+    display: flex;
+    gap: 24px;
+}
+
+.item-image {
+    width: 177px;
+    height: 177px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-details {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.item-details_content {
+    margin-bottom: 12px;
+}
+
+.item-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.item-price {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.item-details_content2 {
+    display: flex;
+    width: 430px;
+
+    margin: 40px 20px 0 0;
+
+    color: #555;
+}
+
+.item-details_actions-box1,
+.item-details_actions-box2 {
+    width: 430px;
+    height: 145px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+.item-details_actions-box1 {
+    border-right: none;
+}
+
+.item-details_actions-box2 {
+    border-left: none;
+}
+
+.item-money,
+.payment-method_p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: #000000;
+
+}
+
+.item-money,
+.item-price_second {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+}
+
+.payment-method_p,
+.selected-method {
+    padding-bottom: 20px;
+
+}
+
+.item-price_second,
+.selected-method {
+
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    margin: 20px 0;
+}
+
+.line {
+    width: 805px;
+    border-bottom: 1px solid #000000;
+}
+
+.payment-method {
+    width: 805px;
+    margin-bottom: 24px;
+}
+
+.payment-method_label {
+    width: 326px;
+    height: 85px;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.payment-method_select {
+    display: flex;
+    width: 265px;
+    height: 31px;
+    color: #5F5F5F;
+    border: 1px solid #5F5F5F;
+    font-size: 12px;
+    margin: 0 0 30px 60px;
+}
+
+.shipping-address-content {
+    margin-bottom: 32px;
+    padding-top: 12px;
+}
+
+.shipping-address_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 805px;
+    margin-bottom: 8px;
+}
+
+.shipping-address {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.shipping-address_change {
+    color: #0073CC;
+    text-decoration: underline;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.shipping-address_details {
+    width: 745px;
+    height: 58px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    margin: 0 0 30px 60px;
+
+}
+
+.purchase {
+    display: flex;
+    justify-content: space-between;
+}
+
+.purchase-button-item {
+    margin: 40px 20px 0 0;
+}
+
+.purchase-button {
+    width: 430px;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #FF5555;
+    cursor: pointer;
+}
+
+.purchase-button:hover {
+    background-color: #2563eb;
+}
+
+.text-danger {
+    color: #FF5555;
+    margin-left: 60px;
+}

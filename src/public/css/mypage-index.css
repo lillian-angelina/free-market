@@ -1,0 +1,153 @@
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1512px;
+    height: 150px;
+    margin: 50px auto;
+    gap: 10px;
+    /* 名前とその他の情報の間に余白を入れる */
+}
+
+.profile-edit-group1,
+.profile-edit-group2 {
+    margin: 0 auto;
+}
+
+.product_unknown {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background: #D9D9D9;
+    border-radius: 50%;
+}
+
+.user-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #D9D9D9;
+}
+
+.user-name {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    padding: 36px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000;
+    white-space: nowrap;
+}
+
+.profile-edit-group2 {
+    border-width: 2px;
+    border-radius: 10px;
+    border: 2px solid #FF5555
+}
+
+.profile-edit-button {
+    width: 310px;
+    display: inline-block;
+    padding: 10px 25px;
+    color: #FF5555;
+    background-color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.toppage-list {
+    max-width: none;
+    height: 47px;
+    border-bottom: 2px solid #5F5F5F
+}
+
+.toppage-list_category {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 127px;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.toppage-list_sell,
+.toppage-list_buy {
+    width: 155px;
+    height: 40px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: right;
+    vertical-align: middle;
+    color: #FF0000;
+}
+
+.toppage-sell-list,
+.toppage-buy-list {
+    width: 290px;
+    height: 290px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 24px;
+    vertical-align: middle;
+    color: #5F5F5F;
+}
+
+.toppage-list_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.card {
+    width: 290px;
+    height: 320px;
+    padding-bottom: 5px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.card-image {
+    width: 290px;
+    height: 290px;
+    border-radius: 4px;
+    background: #D9D9D9;
+}
+
+.card,
+.card-image {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.card-body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title {
+    width: 290px;
+    height: 30px;
+    font-size: 25px;
+    margin: 0;
+    color: #000000;
+}
+
+.card-items {
+    width: 290px;
+    height: 320px;
+}
+
+.item-sold {
+    color: red;
+}

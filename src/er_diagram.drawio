@@ -1,0 +1,159 @@
+<mxfile host="65bd71144e">
+    <diagram name="ER Diagram" id="1">
+        <mxGraphModel dx="1145" dy="1769" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="users" value="users" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="-600" width="180" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;name&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;email&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;email_verified_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;password&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;postal_code&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;address&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;building&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;remember_token&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="users" vertex="1">
+                    <mxGeometry x="15" y="30" width="150" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="users" target="comments">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="70" y="280" as="sourcePoint"/>
+                        <mxPoint x="170" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="items" value="items" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="-560" width="200" height="320" as="geometry">
+                        <mxRectangle x="300" y="40" width="130" height="210" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="&lt;div style=&quot;&quot;&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;user_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;name&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;description&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;price&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;image&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;image_path&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;status&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;category_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;brand_name&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: transparent;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;" parent="items" vertex="1">
+                    <mxGeometry x="30" y="40" width="150" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="items" target="purchases">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint y="110" as="sourcePoint"/>
+                        <mxPoint x="100" y="20" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="categories" value="categories" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="960" y="-560" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;name&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="categories" vertex="1">
+                    <mxGeometry x="20" y="30" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="categories" target="categories_item">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="80" y="160" as="sourcePoint"/>
+                        <mxPoint x="172.5" y="60" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="categories_item" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;categories_item&lt;/span&gt;" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="947.5" y="-314.5" width="185" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;item_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;category_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="categories_item" vertex="1">
+                    <mxGeometry x="17.5" y="40" width="150" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="purchases" value="purchases" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="-600" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;user_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;item_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;payment_method&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;shipping_address&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="purchases" vertex="1">
+                    <mxGeometry x="20" y="30" width="160" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="likes" value="likes" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="-810" width="200" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;user_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;item_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="likes" vertex="1">
+                    <mxGeometry x="25" y="40" width="130" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="addresses" value="addresses" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="-340" width="200" height="287.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;user_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;postal_code&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;prefecture&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;city&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;street&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;building&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;item_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="addresses" vertex="1">
+                    <mxGeometry x="35" y="47.5" width="130" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="comments" value="comments" style="shape=swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="-240" width="180" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;id (PK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;item_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;user_id (FK)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;body&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;created_at&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0); text-wrap-mode: wrap;&quot;&gt;updated_at&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="comments" vertex="1">
+                    <mxGeometry x="25" y="40" width="130" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="220" y="-370" as="sourcePoint"/>
+                        <mxPoint x="680" y="-370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="purchases">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="220" y="-460" as="sourcePoint"/>
+                        <mxPoint x="320" y="-540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="categories_item">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="880" y="-280" as="sourcePoint"/>
+                        <mxPoint x="980" y="-380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="960" y="-480" as="sourcePoint"/>
+                        <mxPoint x="880" y="-480" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="users" target="likes">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="220" y="-490" as="sourcePoint"/>
+                        <mxPoint x="320" y="-590" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" target="addresses">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="220" y="-320" as="sourcePoint"/>
+                        <mxPoint x="320" y="-420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=elbowEdgeStyle;elbow=vertical;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="items" target="comments">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="810" y="-220" as="sourcePoint"/>
+                        <mxPoint x="800" y="-190" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="570" y="-20"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="items" target="likes">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="680" y="-500" as="sourcePoint"/>
+                        <mxPoint x="780" y="-600" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="items" target="addresses">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="680" y="-290" as="sourcePoint"/>
+                        <mxPoint x="780" y="-390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=none;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint y="-827" as="sourcePoint"/>
+                        <mxPoint x="1161" y="-827" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="" style="endArrow=none;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1160" as="sourcePoint"/>
+                        <mxPoint x="1160" y="-827" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="" style="endArrow=none;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint as="sourcePoint"/>
+                        <mxPoint x="1160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="" style="endArrow=none;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint as="sourcePoint"/>
+                        <mxPoint y="-827" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

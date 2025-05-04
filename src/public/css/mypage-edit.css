@@ -1,0 +1,132 @@
+body {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/color.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+main {
+    max-width: none;
+    height: 100%;
+}
+
+.container {
+    display: block;
+    align-items: center;
+    height: 680px;
+    width: 680px;
+    margin: 0 30%;
+    border-radius: 24px;
+    padding: 10px;
+    gap: 30px;
+    background: #FFFFFF;
+}
+
+.edit-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-title p {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 36px;
+    color: #333333;
+    width: 680px;
+    height: 57px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.image-preview {
+    border-radius: 50%;
+    background: #D9D9D9;
+    width: 150px;
+    height: 150px;
+}
+
+.image-upload {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.form-group label {
+    color: #000000;
+    margin: 5px 0 10px 0;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.form-group input {
+    width: 680px;
+    height: 57px;
+    margin-bottom: 20px;
+}
+
+.image-select-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 179px;
+    height: 49px;
+    color: #FF5555;
+    border: 2px solid #FF5555;
+    border-radius: 10px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.form-button {
+    text-align: center;
+}
+
+.btn-primary {
+    width: 680px;
+    height: 57px;
+    font-size: 26px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 30px 0;
+    background: #FF5555;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.create-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53px;
+}
+
+.create-account a {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: #0073CC;
+    text-decoration: none;
+}
+
+.text-danger {
+    color: #FF5555;
+}
