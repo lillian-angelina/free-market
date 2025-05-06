@@ -16,7 +16,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/items';
+    protected $redirectTo = '/';
     /**
      * 新規登録画面表示
      */

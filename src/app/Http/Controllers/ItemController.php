@@ -20,7 +20,7 @@ class ItemController extends Controller
             $items = Item::all();
         }
 
-        return view('items.index', compact('items'));
+        return view('index', compact('items'));
     }
 
     public function show($item_id)
@@ -50,7 +50,7 @@ class ItemController extends Controller
 
         $item->categories()->attach($request->categories);
 
-        return redirect()->route('items.index')->with('success', '商品を出品しました！');
+        return redirect()->route('index')->with('success', '商品を出品しました！');
     }
 
 
@@ -77,6 +77,6 @@ class ItemController extends Controller
             $q->where('name', 'like', '%' . $query . '%');
         })->get();
 
-        return view('items.index', compact('items', 'query'));
+        return view('index', compact('items', 'query'));
     }
 }

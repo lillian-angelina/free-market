@@ -8,12 +8,12 @@
     <div class="toppage-list">
         <ul class="toppage-list_category">
             <li class="toppage-list_recommend">
-                <a href="{{ url('/') }}" class="toppage-osusume {{ request()->fullUrlIs(url('/items')) ? 'active' : '' }}">
+                <a href="{{ url('/') }}" class="toppage-osusume {{ request()->fullUrlIs(url('/')) ? 'active' : '' }}">
                     おすすめ
                 </a>
             </li>
             <li class="toppage-list_mylist">
-                <a href="{{ url('/items/?page=mylist') }}"
+                <a href="{{ url('/?page=mylist') }}"
                     class="toppage-mylist {{ request('page') === 'mylist' ? 'active' : '' }}">
                     マイリスト
                 </a>

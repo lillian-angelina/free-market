@@ -38,7 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // トップ・商品表示・検索・マイリスト
 Route::get('/', [ItemController::class, 'index'])->name('index');
-Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+
 Route::get('/item/{item_id}', [ItemController::class, 'show'])->name('items.show');
 Route::get('/search', [ItemController::class, 'search'])->name('items.search');
 Route::get('/?tab=mylist', [ItemController::class, 'myList'])->name('items.mylist');
