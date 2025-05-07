@@ -38,31 +38,30 @@
                                 <div class="count-content">
                                     <button type="submit" class="like-button" style="font-size: 20px;">
                                         @if ($item->isLikedBy(Auth::user()))
-                                            <label class="likes">⭐</label><br><span
+                                            <img class="likes" src="{{ asset('images/hosi.png') }}"><br><span
                                                 class="count-likes">{{ $item->likes->count() }}</span>
-
                                         @else
-                                            <label class="likes">☆</label><br><span
+                                            <img class="likes" src="{{ asset('images/hosi.png') }}"><br><span
                                                 class="count-likes">{{ $item->likes->count() }}</span>
 
                                         @endif
                                     </button>
                                 </div>
                                 <div class="count-content">
-                                    <p class="icon">💭</p>
+                                    <img class="icon" src="{{ asset('images/hukidasi.png') }}"><br>
                                     <span class="count-comments">{{ $item->comments->count() }}</span>
                                 </div>
                             </form>
                         @else
                             <div class="count-content">
                                 <div class="like-button" style="font-size: 20px;">
-                                    <p class="likes"><a href="{{ route('login') }}" style="color: black; font-size: 30px;">☆</a>
-                                    </p><br>
+                                    <a href="{{ route('login') }}" style="color: black; font-size: 30px;"><img class="likes"
+                                            src="{{ asset('images/hosi.png') }}"></a><br>
                                     <span class="count-likes">{{ $item->likes->count() }}</span>
                                 </div>
                             </div>
                             <div class="count-content">
-                                <p class="icon">💭</p><br>
+                                <img class="icon" src="{{ asset('images/hukidasi.png') }}"><br>
                                 <span class="count-comments">{{ $item->comments->count() }}</span>
                             </div>
                         @endauth
@@ -118,7 +117,8 @@
                     <div class="comment-list">
                         @foreach ($item->comments as $comment)
                             <div class="comment-text">
-                                <p class="comment-text_user">{{ $comment->user->name }}：{{ $comment->body ?? 'こちらにコメントが入ります。' }}
+                                <p class="comment-text__user">
+                                    {{ $comment->user ? $comment->user->name : 'admin' }}：{{ $comment->body }}
                                 </p>
                             </div>
                         @endforeach

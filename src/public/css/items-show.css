@@ -103,8 +103,7 @@
 /* 商品説明 */
 .product-description,
 .product-info {
-    padding: 10px;
-    border-radius: 8px;
+
 }
 
 .product_description-item1 {
@@ -294,7 +293,6 @@
     opacity: 0.8;
 }
 
-.icon,
 .count-content {
     display: inline-grid;
     text-align: center;
@@ -304,32 +302,37 @@
     margin: 0 25px;
 }
 
-.icon,
-.likes {
+.likes,
+.icon {
     display: inline-block;
-    transform: translateY(20%);
     margin: 0 40px;
+    width: 40px;
+    height: 40px;
     font-size: 30px;
-}
-
-.likes {
     cursor: pointer;
 }
 
+.likes {
+    margin-bottom: 5px;
+}
+
 .icon {
+    width: 40px;
+    height: 40px;
     font-size: 30px;
+    transform: translateY(33%);
 }
 
 .count-comments {
-    transform: translateY(-15%);
-    font-weight: 400;
+    transform: translateY(-50%);
+    font-weight: 700;
     font-size: 18px;
     margin: 0 35px;
     padding: 0;
 }
 
 .count-likes {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 18px;
     margin: 0 35px;
     padding: 0;

@@ -11,7 +11,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <div class="login-title">
             <p>ログイン</p>
         </div>

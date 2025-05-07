@@ -82,6 +82,11 @@
 }
 
 /* ボタンエリア */
+.purchase-area {
+    transform: translateY(-50%);
+    margin-top: 27px;
+}
+
 .purchase-button {
     display: inline-block;
     background-color: #FF5555;
@@ -103,8 +108,7 @@
 /* 商品説明 */
 .product-description,
 .product-info {
-    padding: 10px;
-    border-radius: 8px;
+    transform: translateY(-10%);
 }
 
 .product_description-item1 {
@@ -169,7 +173,9 @@
     text-align: center;
 }
 
-
+.product-comment {
+    transform: translateY(-15%);
+}
 
 .product-comment_item {
     font-family: Inter;
@@ -225,6 +231,10 @@
     color: #000000;
     background: #E5E5E5;
     border: none;
+}
+
+.comment-input {
+    transform: translateY(-5%);
 }
 
 /* コメント入力欄 */
@@ -304,11 +314,12 @@
     margin: 0 25px;
 }
 
-.icon,
-.likes {
+.likes,
+.icon {
     display: inline-block;
-    transform: translateY(20%);
     margin: 0 40px;
+    width: 40px;
+    height: 40px;
     font-size: 30px;
 }
 
@@ -317,19 +328,22 @@
 }
 
 .icon {
+    width: 40px;
+    height: 40px;
     font-size: 30px;
+    transform: translateY(33%);
 }
 
 .count-comments {
-    transform: translateY(-100%);
-    font-weight: 400;
+    transform: translateY(-50%);
+    font-weight: 700;
     font-size: 18px;
     margin: 0 35px;
     padding: 0;
 }
 
 .count-likes {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 18px;
     margin: 0 35px;
     padding: 0;
