@@ -1,5 +1,5 @@
 {{-- resources/views/auth/verify-email.blade.php --}}
-@extends('layouts.app')
+@extends('layouts/login_register')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <h1>商品を出品する</h1>
 
         <form method="POST" action="{{ route('items.store') }}" enctype="multipart/form-data">

@@ -3,7 +3,7 @@ body {
     height: 100vh;
 }
 
-.toppage-header {
+.header {
     max-width: none;
     height: 80px;
     background-color: black;
@@ -13,25 +13,17 @@ body {
     overflow: hidden;
 }
 
-.logo {
-    width: 100%;
-    height: 80px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-}
-
-.toppage-header-icon img {
+.header_logo--icon img {
     margin-left: 40px;
 }
 
-.toppage-header-search {
+.header_search {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.toppage-header-search-input {
+.header_search--input {
     border-radius: 5px;
     border: 1px solid #000000;
     font-family: Inter;
@@ -43,7 +35,7 @@ body {
     background-color: white;
 }
 
-.toppage-header-nav {
+.header_nav {
     display: flex;
     align-items: center;
     color: white;
@@ -52,7 +44,7 @@ body {
     margin-right: 10px;
 }
 
-.toppage-header-nav_ul {
+.header_nav--ul {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -69,7 +61,7 @@ body {
     cursor: pointer;
 }
 
-.toppage-header-nav_listing {
+.header_nav--listing {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,8 +73,8 @@ body {
     border: 1px solid #000000;
 }
 
-.logout-link,
-.toppage-header-nav_mypage {
+.header_form--logout,
+.header_nav--mypage {
     width: 135px;
     padding: 10px 0;
     font-size: 24px;

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts/login_register')
 
 @section('title')
     <title>会員登録</title>
