@@ -116,7 +116,7 @@
                         @foreach ($item->comments as $comment)
                             <div class="comment-text">
                                 <p class="comment-text__user">
-                                    {{ $comment->user ? $comment->user->name : 'admin' }}：{{ $comment->body }}
+                                    {{ $comment->user ? $comment->user->name : 'admin' }}：{{ $comment->body ?? 'こちらにコメントが入ります。' }}
                                 </p>
                             </div>
                         @endforeach
