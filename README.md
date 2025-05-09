@@ -56,11 +56,11 @@ DB_PASSWORD=laravel_pass
 4. php artisan route:clear
 
 ## user のログイン用初期データ
-- テストユーザー1
+### テストユーザー1
 - メールアドレス: test@example.com
 - パスワード: password123
 
-- テストユーザー2
+### テストユーザー2
 - メールアドレス: test2@example.com
 - パスワード: password123
 
