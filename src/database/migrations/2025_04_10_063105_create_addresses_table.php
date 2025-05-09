@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('item_id')->nullable()->constrained('items')->onDelete('cascade'); // 配送先用
             $table->timestamps();
 
-            $table->unique(['user_id', 'item_id']); // 同じユーザーが同じ商品に複数登録不可
+            $table->unique(['user_id', 'item_id']);
         });
     }
 

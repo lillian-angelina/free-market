@@ -23,18 +23,15 @@
 
             <div class="image-group">
                 <div class="image-upload">
-                    {{-- プレビュー表示 --}}
                     <img class="image-preview" id="preview"
                         src="{{ auth()->user()->profile_image ? asset('storage/' . auth()->user()->profile_image) : '#' }}"
                         alt="プロフィール画像" style="max-width: 200px;"
                         onerror="this.onerror=null; this.src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='" />
 
-                    {{-- カスタムボタンとしてlabel使用 --}}
                     <label for="image" class="image-select-label">
                         画像を選択する
                     </label>
 
-                    {{-- 実際のファイル選択 input は非表示 --}}
                     <input class="image-select" type="file" name="image" id="image" accept=".jpeg,.jpg,.png"
                         onchange="previewImage(event)" style="display: none;">
                 </div>
@@ -85,7 +82,6 @@
         </form>
     </div>
 
-    {{-- JavaScriptで画像プレビュー --}}
     <script>
         function previewImage(event) {
             const reader = new FileReader();

@@ -190,7 +190,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    /* 名前とその他の情報の間に余白を入れる */
 }
 
 .product_unknown {
@@ -275,7 +274,6 @@
     background-color: #2d995b;
 }
 
-/* コメント1件の見た目 */
 .comment {
     margin-top: 10px;
     padding: 8px;

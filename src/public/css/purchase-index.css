@@ -75,7 +75,6 @@
     text-align: center;
     vertical-align: middle;
     color: #000000;
-
 }
 
 .item-money,
@@ -87,12 +86,10 @@
 .payment-method_p,
 .selected-method {
     padding-bottom: 20px;
-
 }
 
 .item-price_second,
 .selected-method {
-
     font-family: Inter;
     font-weight: 400;
     font-size: 20px;
@@ -162,7 +159,6 @@
     font-size: 20px;
     color: #000000;
     margin: 0 0 30px 60px;
-
 }
 
 .purchase {

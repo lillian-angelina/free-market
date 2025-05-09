@@ -18,7 +18,6 @@ class Item extends Model
         'sold_flg' => 'boolean',
     ];
 
-    // 出品者
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -39,10 +38,9 @@ class Item extends Model
         return $this->hasMany(Purchase::class);
     }
 
-    // 購入されたかどうかをチェック（例: sold_flg など）
     public function isSold()
     {
-        return $this->sold_flg; // true or false
+        return $this->sold_flg;
     }
 
     public function likes()

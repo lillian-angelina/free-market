@@ -17,7 +17,7 @@ class LikeController extends Controller
             ->first();
 
         if ($like) {
-            $like->delete(); // いいね取り消し
+            $like->delete();
         } else {
             Like::create([
                 'user_id' => $user->id,

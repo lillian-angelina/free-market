@@ -100,7 +100,6 @@
             const selectedMethodDisplay = document.getElementById('selected-method');
             const changeLink = document.getElementById('change-shipping-link');
 
-            // 表示用のテキスト変更
             if (selected === 'card') {
                 selectedMethodDisplay.textContent = 'カード支払い';
             } else if (selected === 'convenience') {
@@ -109,7 +108,6 @@
                 selectedMethodDisplay.textContent = '';
             }
 
-            // URL書き換え
             const baseUrl = "{{ route('shipping.edit', ['item_id' => $item->id]) }}";
             changeLink.href = `${baseUrl}?payment_method=${encodeURIComponent(selected)}`;
         }
@@ -117,7 +115,6 @@
         // 初期表示時にも実行
         window.addEventListener('DOMContentLoaded', () => {
             updatePaymentMethod();
-            // セレクトボックスの変更イベントにもバインド
             document.getElementById('payment_method').addEventListener('change', updatePaymentMethod);
         });
     </script>

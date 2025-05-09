@@ -31,7 +31,6 @@
                     <p class="product_brand-name">{{ optional($item->brand)->name ?? 'ブランド不明' }}</p>
                     <p class="product_price">￥ <span class="price">{{ number_format($item->price) }}</span> (税込)</p>
                     <div class="product-actions">
-                        {{-- いいねボタン --}}
                         @auth
                             <form action="{{ route('items.like', ['item' => $item->id]) }}" method="POST">
                                 @csrf
@@ -73,14 +72,13 @@
                 <div class="product-description">
                     <p class="product_description-item1">商品説明</p>
                     <p class="product_description-item2">カラー : <span class="color-item">{{ $item->color ?? 'グレー'}}</span>
-                    </p>{{-- カラー --}}
+                    </p>
                     <p class="product_description-item3"><span class="condition-item">{{ $item->condition ?? '新品'}}</span>
-                    </p> {{-- 商品の状態 --}}
+                    </p>
                     <p class="product_description-item4"><span
-                            class="description-item">{{ $item->description ?? '商品の状態は良好です。傷もありません。'}}</span></p> {{-- 商品説明
-                    --}}
+                            class="description-item">{{ $item->description ?? '商品の状態は良好です。傷もありません。'}}</span></p>
                     <p class="product_description-item5"><span
-                            class="shipping">{{ $item->shipping_method ?? '購入後、即発送いたします。'}}</span></p> {{-- 配送の方法 --}}
+                            class="shipping">{{ $item->shipping_method ?? '購入後、即発送いたします。'}}</span></p>
                 </div>
                 <div class="product-info">
                     <p class="product_description-item1">商品情報</p>
@@ -93,7 +91,7 @@
                     </div>
                     <div class="product-condition">
                         <p class="product_description-item">商品の状態<span
-                                class="condition">{{ $item->condition ?? '良好' }}</span></p> {{-- 商品の状態 --}}
+                                class="condition">{{ $item->condition ?? '良好' }}</span></p>
                     </div>
                 </div>
                 <div class="product-comment">

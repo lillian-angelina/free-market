@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    return redirect()->route('mypage.edit'); // ← プロフィール設定画面へ
+    return redirect()->route('mypage.edit');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 // 認証必須ルート（未ログイン時 /guest にリダイレクト）

@@ -8,7 +8,7 @@ class ExhibitionRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // 認証不要な場合は true に
+        return true;
     }
 
     public function rules()

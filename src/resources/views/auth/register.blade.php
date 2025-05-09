@@ -43,7 +43,6 @@
             <div class="form-group">
                 <label for="password_confirmation">確認用パスワード</label>
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
-                {{-- パスワード確認用のバリデーションエラーは password.confirmed で出力済み --}}
             </div>
 
             <div class="form-button">

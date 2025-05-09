@@ -23,12 +23,10 @@ class ShippingController extends Controller
         $user = Auth::user();
         $item = Item::findOrFail($item_id);
 
-        // すでにshipping_addressesがある場合はそれを使う
         $address = Address::where('user_id', $user->id)
             ->where('item_id', $item_id)
             ->first();
 
-        // なければデフォルト住所（addressesテーブル）を初期値として使う
         if (!$address) {
             $default = Address::where('user_id', $user->id)->first();
             $address = $default;

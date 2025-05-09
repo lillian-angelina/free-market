@@ -8,7 +8,6 @@ class Brand extends Model
 {
     protected $fillable = ['name'];
 
-    // Itemとのリレーション（1対多）
     public function items()
     {
         return $this->hasMany(Item::class);

@@ -17,7 +17,9 @@ class ItemController extends Controller
         if ($request->input('page') === 'mylist') {
             $items = $user ? $user->likedItems()->get() : collect();
         } else {
-            $items = Item::all();
+            $items = Item::when($user, function ($query) use ($user) {
+                $query->where('user_id', '!=', $user->id);
+            })->get();
         }
 
         return view('index', compact('items'));
@@ -30,7 +32,7 @@ class ItemController extends Controller
     }
     public function create()
     {
-        $categories = Category::all(); // カテゴリ一覧を取得
+        $categories = Category::all();
         return view('items.create', compact('categories'));
     }
 
@@ -63,7 +65,7 @@ class ItemController extends Controller
         $user = auth()->user();
 
         $likedItems = $user->likes()
-            ->where('user_id', '!=', $user->id) // 自分の出品商品を除く
+            ->where('user_id', '!=', $user->id)
             ->get();
 
         return view('mylist', ['items' => $likedItems]);
@@ -72,10 +74,17 @@ class ItemController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
+        $user = Auth::user();
 
-        $items = Item::when($query, function ($q) use ($query) {
-            $q->where('name', 'like', '%' . $query . '%');
-        })->get();
+        $items = Item::when($user, function ($q) use ($user) {
+
+            $q->where('user_id', '!=', $user->id);
+        })
+            ->when($query, function ($q) use ($query) {
+
+                $q->where('name', 'like', '%' . $query . '%');
+            })
+            ->get();
 
         return view('index', compact('items', 'query'));
     }

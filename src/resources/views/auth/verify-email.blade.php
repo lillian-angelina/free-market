@@ -1,4 +1,3 @@
-{{-- resources/views/auth/verify-email.blade.php --}}
 @extends('layouts/login_register')
 
 @section('css')
@@ -23,7 +22,7 @@
             @endif
             <div class="content">
                 <div class="certification">
-                    <p><a href="{{ route('verification.notice') }}">認証はこちらから</a></p>
+                    <p><a href="{{ route('mypage.profile') }}">認証はこちらから</a></p>
                 </div>
             </div>
             <form method="POST" action="{{ route('verification.send') }}">

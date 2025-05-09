@@ -15,17 +15,17 @@ class MypageController extends Controller
         $user = auth()->user();
 
         if ($page === 'sell') {
-            // 出品した商品を取得（user_idが自分のもの）
+
             $items = $user->items()->latest()->get();
         } elseif ($page === 'buy') {
-            // 購入した商品を取得（purchasesテーブル経由）
+
             $items = \App\Models\Item::whereIn('id', function ($query) use ($user) {
                 $query->select('item_id')
                     ->from('purchases')
                     ->where('user_id', $user->id);
             })->latest()->get();
         } else {
-            // 初期表示など（アイテムなし）
+
             $items = collect();
         }
 
@@ -64,10 +64,9 @@ class MypageController extends Controller
             ->where('user_id', $user->id)
             ->get();
 
-        // Purchase に紐づく Item を取り出す
         $items = $purchases->pluck('item')->filter();
 
-        return view('items.index', compact('items'));
+        return view('index', compact('items'));
     }
 
     public function __construct()

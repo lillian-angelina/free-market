@@ -100,6 +100,15 @@ class ItemsTableSeeder extends Seeder
                 'brand_name' => null,
                 'image_path' => 'images/外出メイクアップセット.jpg',
             ],
+            [
+                'user_id' => 2,
+                'name' => "メイクセット",
+                'description' => "便利なメイクアップセット",
+                'price' => 2500,
+                'condition' => '目立った傷や汚れなし',
+                'brand_name' => null,
+                'image_path' => 'images/外出メイクアップセット.jpg',
+            ],
         ];
 
         foreach ($items as $item) {

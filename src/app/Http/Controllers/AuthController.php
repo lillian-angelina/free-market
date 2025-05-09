@@ -30,7 +30,6 @@ class AuthController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        // 🔁 バリデーション結果を取得（FormRequestのvalidatedメソッドを使う）
         $validated = $request->validated();
 
         // 登録処理
@@ -90,6 +89,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login'); // またはトップページなど
+        return redirect('/login');
     }
 }
